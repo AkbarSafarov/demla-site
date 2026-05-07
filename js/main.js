@@ -133,6 +133,69 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    // Scroll animations
+    const fadeUpGroups = [
+        '.hero_section .block_inner h1',
+        '.hero_section .block_inner .hero_section__text',
+        '.hero_section .block_inner .btn_button',
+        '.products_section',
+        '.delevery_section',
+        '.polimer_card',
+        '.suppliers_item',
+        '.about_section h2',
+        '.about_section__text',
+        '.about_feature',
+        '.partner_item',
+        '.certificat_item',
+    ];
+
+    const fadeLeftElems = [
+        '.preim_left',
+        '.help_polymer_section__left',
+        '.form_section__left',
+    ];
+
+    const singleFadeUp = [
+        '.polymers_slider_section h2',
+        '.help_polymer_section__right',
+        '.suppliers_section h2',
+        '.preim_right',
+        '.partner_section h2',
+        '.certificat_section h2',
+        '.form_bottom_section h2',
+    ];
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    fadeUpGroups.forEach(selector => {
+        document.querySelectorAll(selector).forEach((el, i) => {
+            el.classList.add('anim-fade-up');
+            el.style.transitionDelay = (i * 0.08) + 's';
+            observer.observe(el);
+        });
+    });
+
+    singleFadeUp.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => {
+            el.classList.add('anim-fade-up');
+            observer.observe(el);
+        });
+    });
+
+    fadeLeftElems.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => {
+            el.classList.add('anim-fade-left');
+            observer.observe(el);
+        });
+    });
 });
 
 

@@ -2604,3 +2604,75 @@ img, textarea, input, table {
         }
     }
 }
+
+
+// ── Hover zoom on images ──────────────────────────────────────────
+
+.partner_item {
+    overflow: hidden;
+    img {
+        transition: transform 0.4s ease;
+        display: block;
+        width: 100%;
+    }
+    &:hover img { transform: scale(1.07); }
+}
+
+.certificat_item {
+    overflow: hidden;
+    img {
+        transition: transform 0.4s ease;
+        display: block;
+        width: 100%;
+    }
+    &:hover img { transform: scale(1.06); }
+}
+
+.polimer_card {
+    &__img {
+        overflow: hidden;
+        img { transition: transform 0.45s ease; }
+    }
+    &:hover &__img img { transform: scale(1.08); }
+}
+
+.products_section .item .image {
+    overflow: hidden;
+    img { transition: transform 0.5s ease; }
+}
+.products_section .item:hover .image img { transform: scale(1.06); }
+
+.preim_item__image {
+    overflow: hidden;
+    img {
+        transition: transform 0.4s ease;
+        display: block;
+        width: 100%;
+    }
+}
+.preim_item.active .preim_item__image img { transform: scale(1.05); }
+
+
+// ── Scroll-triggered fade-up ──────────────────────────────────────
+
+.anim-fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.anim-fade-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+
+    &.is-visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
